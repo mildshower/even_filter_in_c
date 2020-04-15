@@ -1,6 +1,11 @@
 #include <stdlib.h>
 #include "even_filter.h"
 
+bool is_even(int number)
+{
+  return number % 2 == 0;
+}
+
 int_array filter_even(int numbers[], int length)
 {
   int even_numbers_on_stack[length], index;
@@ -8,7 +13,7 @@ int_array filter_even(int numbers[], int length)
 
   for (index = 0; index < length; index++)
   {
-    if (numbers[index] % 2 == 0)
+    if (is_even(numbers[index]))
     {
       even_numbers_on_stack[even_numbers.length] = numbers[index];
       even_numbers.length++;
