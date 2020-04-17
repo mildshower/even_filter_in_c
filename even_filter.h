@@ -3,8 +3,6 @@
 
 #define ARRAY_SIZE(arr) sizeof(arr) / sizeof(arr[0])
 #define bool unsigned char
-#define true 1
-#define false 0
 
 typedef struct
 {
