@@ -10,7 +10,9 @@ typedef struct
   int length;
 } int_array;
 
-int_array filter_even(int numbers[], int length);
+void print_int_array(int_array *numbers);
+
+int_array *filter_even(int *numbers, int length);
 
 bool is_even(int number);
 
