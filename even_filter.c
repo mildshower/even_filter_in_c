@@ -18,18 +18,26 @@ void print_int_array(int_array *numbers)
 int_array *filter_even(int *numbers, int length)
 {
   int_array *even_numbers = malloc(sizeof(int_array));
-  even_numbers->array = malloc(sizeof(int) * length);
   even_numbers->length = 0;
+  int *temp_array = malloc(sizeof(int) * length);
+  unsigned index;
 
-  for (unsigned index = 0; index < length; index++)
+  for (index = 0; index < length; index++)
   {
     if (is_even(numbers[index]))
     {
-      even_numbers->array[even_numbers->length] = numbers[index];
+      temp_array[even_numbers->length] = numbers[index];
       even_numbers->length++;
     }
   }
 
-  even_numbers->array = realloc(even_numbers->array, sizeof(int) * even_numbers->length);
+  even_numbers->array = malloc(sizeof(int) * even_numbers->length);
+
+  for (index = 0; index < even_numbers->length; index++)
+  {
+    even_numbers->array[index] = temp_array[index];
+  }
+
+  free(temp_array);
   return even_numbers;
 }
